@@ -127,19 +127,26 @@ section{position:relative}
 .mobile-nav a{font-family:var(--font-display);font-size:1.85rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--text-strong)}
 .mobile-nav__cta{margin-top:auto;padding-top:2rem}
 
-.hero{min-height:88vh;min-height:88svh;display:flex;align-items:flex-end;padding:calc(var(--header-h) + 6rem) 0 5rem;background:radial-gradient(circle at 80% 0%,rgba(3,105,161,0.07),transparent 50%),radial-gradient(circle at 0% 100%,rgba(15,23,42,0.04),transparent 50%),var(--bg);overflow:hidden;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);pointer-events:none}
+.hero{min-height:88vh;min-height:88svh;display:flex;align-items:flex-end;padding:calc(var(--header-h) + 6rem) 0 5rem;background:#0F172A;color:#F8FAFC;overflow:hidden;position:relative}
+.hero__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(125deg,rgba(15,23,42,0.92) 0%,rgba(15,23,42,0.78) 45%,rgba(15,23,42,0.55) 100%),linear-gradient(180deg,rgba(15,23,42,0.4) 0%,transparent 30%,rgba(15,23,42,0.5) 100%)}
+.hero h1{color:#F8FAFC}
+.hero .eyebrow{color:#7DD3FC}
+.hero .eyebrow::before{background:#7DD3FC}
+
+
 .hero__inner{position:relative;z-index:1;width:100%}
 .hero__grid{display:grid;gap:3rem;grid-template-columns:1fr;align-items:end}
 @media (min-width:880px){.hero__grid{grid-template-columns:1.3fr 1fr;gap:4rem}}
 .hero h1{margin-bottom:1.75rem}
-.hero h1 .accent{color:var(--accent)}
-.hero__sub{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--text-muted);max-width:42ch;margin-bottom:2rem}
+.hero h1 .accent{color:#7DD3FC;font-style:italic}
+.hero__sub{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:rgba(248,250,252,0.85);max-width:42ch;margin-bottom:2rem}
 .hero__ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
-.hero__meta{display:grid;gap:0.5rem;border-top:1px solid var(--border);padding-top:1.5rem;margin-top:4rem}
+.hero__meta{display:grid;gap:0.5rem;border-top:1px solid rgba(248,250,252,0.15);padding-top:1.5rem;margin-top:4rem}
 .hero__meta-row{display:flex;justify-content:space-between;font-size:0.85rem;align-items:center}
-.hero__meta-row dt{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-subtle)}
-.hero__meta-row dd{font-weight:600;color:var(--text-strong)}
+.hero__meta-row dt{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:#7DD3FC}
+.hero__meta-row dd{font-weight:600;color:#F8FAFC}
 
 .trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0;background:var(--bg-elev)}
 .trust-strip__inner{display:flex;flex-direction:column;gap:1.5rem;align-items:center}
@@ -257,6 +264,19 @@ section{position:relative}
 ::selection{background:var(--accent);color:#fff}
 .skip{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:100;border-radius:0 0 4px 0}
 .skip:focus{top:0}
+
+/* ==== TRANSPARENT-TO-SOLID HEADER (homepage only — hero has dark image bg) ==== */
+.site-header{background:transparent !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border-bottom-color:transparent !important;box-shadow:none !important;transition:background 350ms cubic-bezier(0.16,1,0.3,1),backdrop-filter 350ms,border-bottom-color 350ms,box-shadow 350ms}
+.site-header .nav a{color:rgba(248,250,252,0.78);transition:color 200ms,background 200ms}
+.site-header .nav a:hover{color:#fff;background:rgba(248,250,252,0.1)}
+.site-header .nav a.is-active{color:#fff;background:rgba(125,211,252,0.18)}
+.site-header .burger{color:#F8FAFC}
+/* Scrolled state — solid cream, dark text */
+.site-header.is-scrolled{background:rgba(248,250,252,0.96) !important;backdrop-filter:blur(20px) saturate(180%) !important;-webkit-backdrop-filter:blur(20px) saturate(180%) !important;border-bottom-color:var(--border) !important;box-shadow:0 1px 2px rgba(15,23,42,0.04),0 4px 16px -4px rgba(15,23,42,0.06) !important}
+.site-header.is-scrolled .nav a{color:var(--text-muted)}
+.site-header.is-scrolled .nav a:hover{color:var(--text-strong);background:var(--bg-tint)}
+.site-header.is-scrolled .nav a.is-active{color:var(--accent);background:var(--accent-tint)}
+.site-header.is-scrolled .burger{color:var(--text-strong)}
 </style>
 </head>
 <body>
@@ -306,6 +326,10 @@ section{position:relative}
 <main id="main">
 
 <section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80" alt="" />
+    <div class="hero__overlay"></div>
+  </div>
   <div class="hero__inner">
     <div class="container">
       <div class="hero__grid">
@@ -326,7 +350,7 @@ section{position:relative}
               Berätta om projektet
               <span class="arr" aria-hidden="true">→</span>
             </a>
-            <a href="services.html" class="btn btn--secondary btn--lg">Våra tjänster</a>
+            <a href="services.html" class="btn btn--ghost-on-dark btn--lg">Våra tjänster</a>
           </div>
         </div>
       </div>
@@ -809,7 +833,7 @@ section{position:relative}
 
   const header = document.querySelector('.site-header');
   if(header){
-    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 80);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
