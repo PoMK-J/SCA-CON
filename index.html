@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="SCA-CON - Skandinavisk konceptbyggnation, butiksetableringar och rikstäckande serviceavtal. 20 år av återkommande kedjekunder." />
+<meta name="theme-color" content="#0F172A" />
+<title>SCA-CON - Konceptbyggnation, butiksetableringar &amp; service</title>
+
+<meta property="og:title" content="SCA-CON - Skandinavisk konceptbyggnation" />
+<meta property="og:description" content="Etablering, ombyggnation, avetablering och rikstäckande serviceavtal åt kedjeföretag. En väg in." />
+<meta property="og:type" content="website" />
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"GeneralContractor",
+  "name":"Scandinavian Construction & Management AB",
+  "alternateName":"SCA-CON",
+  "url":"https://sca-con.se",
+  "telephone":"+46-720-666009",
+  "email":"info@sca-con.se",
+  "address":[
+    {"@type":"PostalAddress","streetAddress":"Småbåtshamnen 18F","postalCode":"263 39","addressLocality":"Höganäs","addressCountry":"SE"},
+    {"@type":"PostalAddress","streetAddress":"Älvvägen 10","postalCode":"446 37","addressLocality":"Älvängen","addressCountry":"SE"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,picture,video,svg{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:none;background:none;cursor:pointer;color:inherit;font-family:var(--font-body)}
+ul,ol{list-style:none}
+
+:root{
+  --bg:#F8FAFC; --bg-elev:#FFFFFF; --bg-tint:#EEF2F7;
+  --bg-dark:#0F172A; --bg-dark-elev:#1E293B;
+  --text:#020617; --text-strong:#0F172A; --text-muted:#475569; --text-subtle:#64748B;
+  --text-on-dark:#F8FAFC; --text-muted-on-dark:#94A3B8;
+  --brand:#0F172A; --accent:#0369A1; --accent-hover:#075985;
+  --accent-light:#E0F2FE; --accent-tint:#F0F9FF;
+  --border:#E2E8F0; --border-strong:#CBD5E1;
+  --shadow-sm:0 1px 2px rgba(15,23,42,0.06);
+  --shadow-md:0 4px 6px -1px rgba(15,23,42,0.1),0 2px 4px -2px rgba(15,23,42,0.06);
+  --shadow-lg:0 10px 25px -5px rgba(15,23,42,0.1),0 8px 10px -6px rgba(15,23,42,0.06);
+  --shadow-xl:0 25px 50px -12px rgba(15,23,42,0.18);
+  --font-display:'Rubik','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-body:'Nunito Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'Courier New',monospace;
+  --container:1280px; --gutter:clamp(1.25rem,3vw,2.5rem);
+  --header-h:80px; --section-y:clamp(4.5rem,9vw,8rem);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+  --t-fast:200ms; --t-med:350ms;
+}
+
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-strong);font-weight:500;line-height:1.1;letter-spacing:-0.02em}
+h1{font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:500;letter-spacing:-0.025em;line-height:1.05}
+h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:500}
+h3{font-size:clamp(1.25rem,2vw,1.65rem);font-weight:500;line-height:1.25}
+h4{font-size:1.05rem;font-weight:600;line-height:1.3}
+p{max-width:62ch;font-weight:400}
+
+.eyebrow{font-family:var(--font-mono);font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
+.eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+.lead{font-size:clamp(1.1rem,1.4vw,1.25rem);line-height:1.55;color:var(--text-muted);font-weight:400}
+
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+section{position:relative}
+.section{padding:var(--section-y) 0}
+.section-dark{background:var(--bg-dark);color:var(--text-on-dark)}
+.section-dark h1,.section-dark h2,.section-dark h3,.section-dark h4{color:var(--text-on-dark)}
+.section-dark .eyebrow{color:#7DD3FC}
+.section-dark p{color:var(--text-muted-on-dark)}
+.section-tint{background:var(--bg-tint)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.85rem 1.4rem;font-family:var(--font-body);font-size:0.95rem;font-weight:600;letter-spacing:-0.005em;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all var(--t-fast) var(--ease);white-space:nowrap;min-height:44px}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn .arr{transition:transform var(--t-med) var(--ease);display:inline-block}
+.btn:hover .arr{transform:translateX(4px)}
+.btn--primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-md)}
+.btn--primary:hover{background:var(--accent-hover);box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.btn--secondary{background:var(--bg-elev);color:var(--text-strong);border-color:var(--border);box-shadow:var(--shadow-sm)}
+.btn--secondary:hover{border-color:var(--border-strong);box-shadow:var(--shadow-md)}
+.btn--ghost-on-dark{background:transparent;color:var(--text-on-dark);border-color:rgba(248,250,252,0.25)}
+.btn--ghost-on-dark:hover{background:rgba(248,250,252,0.05);border-color:rgba(248,250,252,0.5)}
+.btn--lg{padding:1rem 1.75rem;font-size:1rem;border-radius:10px}
+
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(248,250,252,0.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid transparent;transition:background var(--t-med),border-color var(--t-med)}
+.site-header.is-scrolled{background:rgba(248,250,252,0.98);border-bottom-color:var(--border);box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:var(--header-h)}
+.logo{display:inline-flex;align-items:center;gap:0.7rem;text-decoration:none;color:var(--text-strong)}
+/* Dark navy chip matching the logo's native dark-teal background */
+.logo__chip{display:inline-flex;align-items:center;height:56px;padding:0 16px;background:#0F172A;border-radius:10px;box-shadow:0 1px 2px rgba(15,23,42,0.08),inset 0 0 0 1px rgba(125,211,252,0.1);transition:box-shadow var(--t-fast),transform var(--t-fast)}
+.logo:hover .logo__chip{box-shadow:0 6px 16px rgba(15,23,42,0.14),inset 0 0 0 1px rgba(125,211,252,0.22)}
+.logo__img{height:40px;width:auto;display:block}
+
+.nav{display:none}
+@media (min-width:980px){.nav{display:flex;align-items:center;gap:0.25rem}}
+.nav a{position:relative;padding:0.5rem 0.9rem;font-size:0.95rem;font-weight:500;color:var(--text-muted);border-radius:6px;transition:color var(--t-fast),background var(--t-fast)}
+.nav a:hover{color:var(--text-strong);background:var(--bg-tint)}
+.nav a.is-active{color:var(--accent);background:var(--accent-tint)}
+.header-cta{display:none}
+@media (min-width:980px){.header-cta{display:inline-flex}}
+
+.burger{display:grid;place-items:center;width:44px;height:44px;border-radius:6px;position:relative;color:var(--text-strong)}
+@media (min-width:980px){.burger{display:none}}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;border-radius:1px;transition:all var(--t-med) var(--ease)}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:28px}
+.burger.is-open span:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){top:21px;transform:rotate(-45deg)}
+
+.mobile-nav{position:fixed;inset:0;background:var(--bg);z-index:45;padding:calc(var(--header-h) + 2rem) var(--gutter) 2rem;transform:translateY(-100%);transition:transform 0.5s var(--ease-out-expo);display:flex;flex-direction:column}
+.mobile-nav.is-open{transform:translateY(0)}
+.mobile-nav a{font-family:var(--font-display);font-size:1.85rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--text-strong)}
+.mobile-nav__cta{margin-top:auto;padding-top:2rem}
+
+.hero{min-height:88vh;min-height:88svh;display:flex;align-items:flex-end;padding:calc(var(--header-h) + 6rem) 0 5rem;background:radial-gradient(circle at 80% 0%,rgba(3,105,161,0.07),transparent 50%),radial-gradient(circle at 0% 100%,rgba(15,23,42,0.04),transparent 50%),var(--bg);overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);pointer-events:none}
+.hero__inner{position:relative;z-index:1;width:100%}
+.hero__grid{display:grid;gap:3rem;grid-template-columns:1fr;align-items:end}
+@media (min-width:880px){.hero__grid{grid-template-columns:1.3fr 1fr;gap:4rem}}
+.hero h1{margin-bottom:1.75rem}
+.hero h1 .accent{color:var(--accent)}
+.hero__sub{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--text-muted);max-width:42ch;margin-bottom:2rem}
+.hero__ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
+.hero__meta{display:grid;gap:0.5rem;border-top:1px solid var(--border);padding-top:1.5rem;margin-top:4rem}
+.hero__meta-row{display:flex;justify-content:space-between;font-size:0.85rem;align-items:center}
+.hero__meta-row dt{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-subtle)}
+.hero__meta-row dd{font-weight:600;color:var(--text-strong)}
+
+.trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0;background:var(--bg-elev)}
+.trust-strip__inner{display:flex;flex-direction:column;gap:1.5rem;align-items:center}
+@media (min-width:780px){.trust-strip__inner{flex-direction:row;justify-content:space-between;gap:2rem}}
+.trust-strip__label{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-subtle);white-space:nowrap}
+.trust-strip__logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(1.5rem,3vw,3rem);color:var(--text-muted)}
+.trust-strip__logo{font-family:var(--font-display);font-weight:600;font-size:0.95rem;opacity:0.7;transition:opacity var(--t-fast)}
+.trust-strip__logo:hover{opacity:1}
+
+.section-head{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:clamp(2.5rem,5vw,4rem);align-items:end}
+@media (min-width:780px){.section-head{grid-template-columns:1.3fr 1fr;gap:4rem}}
+.section-head__title h2{max-width:18ch}
+.section-head__body{font-size:1.05rem;line-height:1.6;color:var(--text-muted);max-width:48ch}
+.section-dark .section-head__body{color:var(--text-muted-on-dark)}
+
+.pillars{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media (min-width:680px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:transform var(--t-med),box-shadow var(--t-med),border-color var(--t-med)}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-light)}
+.pillar__icon{width:48px;height:48px;display:grid;place-items:center;background:var(--accent-tint);color:var(--accent);border-radius:10px}
+.pillar__icon svg{width:24px;height:24px}
+.pillar__num{font-family:var(--font-mono);font-size:0.75rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)}
+.pillar p{color:var(--text-muted);font-size:0.98rem;line-height:1.6;margin:0}
+
+/* Build sequence - sticky scroll-driven */
+.build-sequence{height:500vh;background:var(--bg-dark);color:var(--text-on-dark);position:relative}
+.build-stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,rgba(3,105,161,0.15) 0%,transparent 60%),var(--bg-dark)}
+@media (min-width:980px){.build-stage{grid-template-columns:1fr 1.2fr}}
+.build-stage__info{padding:var(--gutter);display:flex;flex-direction:column;gap:1.25rem;justify-content:center;z-index:2}
+.build-stage__num{font-family:var(--font-display);font-size:clamp(4rem,11vw,9rem);font-weight:300;line-height:0.9;color:#7DD3FC;letter-spacing:-0.04em}
+.build-stage__title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:500;line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark)}
+.build-stage__desc{color:var(--text-muted-on-dark);font-size:1rem;max-width:42ch;line-height:1.6}
+.build-stage__canvas-wrap{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:2rem}
+.build-stage__canvas{width:100%;max-width:680px;height:auto;max-height:480px;overflow:visible}
+
+.build-phases{position:absolute;left:var(--gutter);top:calc(var(--header-h) + 1.5rem);display:flex;gap:0.4rem;flex-wrap:wrap;z-index:3;max-width:calc(100% - var(--gutter)*2)}
+.build-phase{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.4rem 0.65rem;border:1px solid rgba(248,250,252,0.18);color:var(--text-muted-on-dark);border-radius:999px;transition:all var(--t-med);background:rgba(248,250,252,0.03)}
+.build-phase.is-current{color:var(--text-on-dark);border-color:#7DD3FC;background:rgba(125,211,252,0.12);box-shadow:0 0 0 4px rgba(125,211,252,0.08)}
+
+.build-progress{position:absolute;left:0;right:0;bottom:3rem;height:2px;background:rgba(248,250,252,0.1);margin:0 var(--gutter);z-index:3;border-radius:2px;overflow:hidden}
+.build-progress__fill{height:100%;background:linear-gradient(to right,#7DD3FC,#0369A1);transform-origin:left;transform:scaleX(0);border-radius:2px}
+
+.bs-base{--p:0}
+/* Phase reveal - retail buildout from empty shell */
+.bs-walls{opacity:calc(min(max((var(--p) - 0.18) / 0.18,0),1));transform-origin:center bottom;transform:scaleY(calc(min(max((var(--p) - 0.18) / 0.18,0),1)))}
+.bs-ceiling{opacity:calc(min(max((var(--p) - 0.22) / 0.14,0),1));transform-origin:center top;transform:scaleY(calc(min(max((var(--p) - 0.22) / 0.14,0),1)))}
+.bs-fixtures{opacity:calc(min(max((var(--p) - 0.40) / 0.18,0),1));transform-origin:center bottom;transform:scaleY(calc(min(max((var(--p) - 0.40) / 0.18,0),1)))}
+.bs-counter{opacity:calc(min(max((var(--p) - 0.46) / 0.16,0),1));transform-origin:center bottom;transform:scaleY(calc(min(max((var(--p) - 0.46) / 0.16,0),1)))}
+.bs-lights{opacity:calc(min(max((var(--p) - 0.62) / 0.10,0),1))}
+.bs-glow{opacity:calc(min(max((var(--p) - 0.66) / 0.14,0),1)*0.45)}
+.bs-products{opacity:calc(min(max((var(--p) - 0.68) / 0.14,0),1))}
+.bs-fridge{opacity:calc(min(max((var(--p) - 0.70) / 0.12,0),1))}
+.bs-sign{opacity:calc(min(max((var(--p) - 0.84) / 0.10,0),1));transform-origin:center;transform:scale(calc(0.7 + 0.3*min(max((var(--p) - 0.84) / 0.10,0),1)))}
+.bs-awning{opacity:calc(min(max((var(--p) - 0.86) / 0.08,0),1));transform-origin:center top;transform:scaleY(calc(min(max((var(--p) - 0.86) / 0.08,0),1)))}
+.bs-open-sign{opacity:calc(min(max((var(--p) - 0.92) / 0.08,0),1));transform-origin:center;transform:scale(calc(0.5 + 0.5*min(max((var(--p) - 0.92) / 0.08,0),1)))}
+.bs-customer{opacity:calc(min(max((var(--p) - 0.94) / 0.06,0),1)*0.7)}
+/* Construction tape - visible early phases, fades after walls go up */
+.bs-tape{opacity:calc(1 - min(max((var(--p) - 0.30) / 0.20,0),1))}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media (min-width:780px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{padding:clamp(2rem,4vw,3rem) clamp(1rem,2vw,2rem);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat:nth-child(2){border-right:0}
+@media (min-width:780px){.stat:nth-child(2){border-right:1px solid var(--border)}.stat:nth-child(-n+2){border-bottom:0}}
+.stat__num{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:500;line-height:1;letter-spacing:-0.03em;color:var(--text-strong);margin-bottom:0.5rem}
+.stat__num .unit{font-size:0.5em;font-weight:500;color:var(--accent);margin-left:0.15em}
+.stat__label{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-subtle);font-weight:500}
+
+.clients-grid{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(2,1fr);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+@media (min-width:680px){.clients-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:980px){.clients-grid{grid-template-columns:repeat(6,1fr)}}
+.client-tile{background:var(--bg-elev);padding:2rem 1rem;display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:0.95rem;color:var(--text-muted);text-align:center;transition:color var(--t-fast),background var(--t-fast);min-height:96px}
+.client-tile:hover{color:var(--accent);background:var(--accent-tint)}
+
+.featured{display:grid;gap:clamp(2rem,4vw,4rem);grid-template-columns:1fr;align-items:center}
+@media (min-width:880px){.featured{grid-template-columns:1fr 1fr}}
+.featured__media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:16px;background:linear-gradient(135deg,#1E293B,#0F172A);box-shadow:var(--shadow-xl)}
+.featured__media img{width:100%;height:100%;object-fit:cover;transition:transform 8s var(--ease)}
+.featured:hover .featured__media img{transform:scale(1.04)}
+.featured__caption{position:absolute;left:1rem;bottom:1rem;background:rgba(15,23,42,0.85);backdrop-filter:blur(10px);color:var(--text-on-dark);padding:0.5rem 0.85rem;border-radius:6px;font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase}
+.featured h2{margin-bottom:1.25rem}
+.featured p{color:var(--text-muted);margin-bottom:1.25rem}
+
+.cta-band{text-align:center;padding:clamp(4rem,8vw,7rem) var(--gutter);background:linear-gradient(135deg,var(--bg-dark) 0%,#1E293B 100%);color:var(--text-on-dark);position:relative;overflow:hidden;border-radius:16px}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 100%,rgba(3,105,161,0.25),transparent 50%),radial-gradient(circle at 80% 0%,rgba(125,211,252,0.12),transparent 50%);pointer-events:none}
+.cta-band > *{position:relative;z-index:1}
+.cta-band h2{color:var(--text-on-dark);max-width:22ch;margin:0 auto 1.5rem}
+.cta-band p{color:var(--text-muted-on-dark);margin:0 auto 2rem;max-width:48ch}
+.cta-band__buttons{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+
+.site-footer{background:var(--bg-elev);color:var(--text-muted);padding:clamp(3.5rem,6vw,5rem) 0 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;gap:2.5rem;grid-template-columns:1fr;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+@media (min-width:720px){.footer-grid{grid-template-columns:1.4fr repeat(3,1fr)}}
+.footer-brand h3{color:var(--text-strong);font-size:1.4rem;margin-bottom:0.85rem;letter-spacing:-0.01em}
+.footer-brand p{font-size:0.9rem;max-width:32ch;line-height:1.6;color:var(--text-muted)}
+.footer-col h4{font-family:var(--font-mono);font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-strong);margin-bottom:1.25rem}
+.footer-col li{margin-bottom:0.65rem;font-size:0.92rem}
+.footer-col a{color:var(--text-muted);transition:color var(--t-fast)}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:2rem;font-size:0.82rem;color:var(--text-subtle)}
+.footer-bottom a:hover{color:var(--accent)}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.9s var(--ease-out-expo),transform 0.9s var(--ease-out-expo);will-change:opacity,transform}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .build-sequence{height:auto}
+  .build-stage{position:relative;height:auto;padding:4rem 0}
+}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+::selection{background:var(--accent);color:#fff}
+.skip{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:100;border-radius:0 0 4px 0}
+.skip:focus{top:0}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Hoppa till innehåll</a>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="SCA-CON hem">
+        <span class="logo__chip">
+          <img class="logo__img" src="https://sca-con.se/images/8/scacon-logga-1070.png" alt="SCA-CON - Scandinavian Construction &amp; Management AB" />
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Huvudnavigation">
+        <a href="index.html" class="is-active">Hem</a>
+        <a href="about.html">Om oss</a>
+        <a href="services.html">Tjänster</a>
+        <a href="projects.html">Referenser</a>
+        <a href="sustainability.html">Hållbarhet</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+
+      <a href="contact.html" class="btn btn--primary header-cta">
+        Kontakta oss
+        <span class="arr" aria-hidden="true">→</span>
+      </a>
+
+      <button class="burger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobilmeny" hidden>
+  <a href="index.html">Hem</a>
+  <a href="about.html">Om oss</a>
+  <a href="services.html">Tjänster</a>
+  <a href="projects.html">Referenser</a>
+  <a href="sustainability.html">Hållbarhet</a>
+  <a href="contact.html">Kontakt</a>
+  <a href="contact.html" class="btn btn--primary mobile-nav__cta">Kontakta oss <span class="arr">→</span></a>
+</nav>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <span class="eyebrow reveal">Skandinavisk konceptbyggnation · Etablerat 2005</span>
+          <h1 class="reveal">
+            Vi bygger butikerna<br/>som kedjorna <span class="accent">återvänder till.</span>
+          </h1>
+        </div>
+        <div class="reveal">
+          <p class="hero__sub">
+            Etablering, ombyggnation, avetablering och rikstäckande service åt
+            kedjeföretag. En väg in - från första skissen till sista
+            servicebesöket.
+          </p>
+          <div class="hero__ctas">
+            <a href="contact.html" class="btn btn--primary btn--lg">
+              Berätta om projektet
+              <span class="arr" aria-hidden="true">→</span>
+            </a>
+            <a href="services.html" class="btn btn--secondary btn--lg">Våra tjänster</a>
+          </div>
+        </div>
+      </div>
+
+      <dl class="hero__meta reveal">
+        <div class="hero__meta-row"><dt>Huvudkontor</dt><dd>Höganäs, Sverige</dd></div>
+        <div class="hero__meta-row"><dt>Telefon</dt><dd>072-066 60 09</dd></div>
+        <div class="hero__meta-row"><dt>Mail</dt><dd>info@sca-con.se</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip" aria-label="Kunder">
+  <div class="container">
+    <div class="trust-strip__inner">
+      <span class="trust-strip__label">Ett urval av våra kunder</span>
+      <div class="trust-strip__logos">
+        <span class="trust-strip__logo">Subway</span>
+        <span class="trust-strip__logo">HMY</span>
+        <span class="trust-strip__logo">Anyplace Media</span>
+        <span class="trust-strip__logo">Swegreen</span>
+        <span class="trust-strip__logo">Naked Juicebar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="varden">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__title">
+        <span class="eyebrow reveal">Tre löften</span>
+        <h2 id="varden" class="reveal">Tjugo år av jobb gjorda rätt första gången.</h2>
+      </div>
+      <p class="section-head__body reveal">
+        Vi är en tight, kostnadseffektiv organisation som lever av att kunderna
+        ringer tillbaka. Det är inga marknadsfraser - det är så vi blir
+        mätta varje projekt, varje servicebesök, varje upphandling.
+      </p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12.75 11.25 15 15 9.75M21 12c0 6-9 9-9 9s-9-3-9-9V5l9-3 9 3v7Z"/>
+          </svg>
+        </div>
+        <span class="pillar__num">01 / Trygghet</span>
+        <h3>Trygghet längs hela projektet.</h3>
+        <p>Du som kund ska känna lugn under hela resan. Vi följer projektet från första skissen till sista servicebesöket utan att tappa tråden.</p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>
+        </div>
+        <span class="pillar__num">02 / Engagemang</span>
+        <h3>Personligt engagemang, hela vägen.</h3>
+        <p>En kontaktperson, ett ansvar. Christoffer och Jonas är aldrig mer än ett samtal bort - även när det inte är akut.</p>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/>
+          </svg>
+        </div>
+        <span class="pillar__num">03 / Helhet</span>
+        <h3>En väg in. För hela kedjan.</h3>
+        <p>Etablering, inredning, installation, avetablering och löpande service. Allt under samma tak och samma kontaktväg - inga överlämningar mellan leverantörer.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="build-sequence" id="build-sequence" aria-label="Så bygger vi en butik, fas för fas">
+  <div class="build-stage">
+
+    <div class="build-phases" aria-hidden="true">
+      <span class="build-phase">01 Tom lokal</span>
+      <span class="build-phase">02 Plan &amp; väggar</span>
+      <span class="build-phase">03 Inredning</span>
+      <span class="build-phase">04 Installation</span>
+      <span class="build-phase">05 Öppning</span>
+    </div>
+
+    <div class="build-stage__info">
+      <span class="eyebrow" style="color:#7DD3FC">Så bygger vi · scrolla för att se</span>
+      <div class="build-stage__num" data-stage-num>01</div>
+      <h2 class="build-stage__title" data-stage-title>Tom lokal</h2>
+      <p class="build-stage__desc" data-stage-desc>
+        En befintlig butikslokal - tom, opersonlig, redo. Genomgång på plats,
+        ritning, tidsplan. Kedjans drift och butikspersonalens vardag bestämmer
+        hur arbetet sekvenseras.
+      </p>
+    </div>
+
+    <div class="build-stage__canvas-wrap">
+      <svg class="build-stage__canvas bs-base" viewBox="0 0 680 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Faint architectural grid -->
+        <g stroke="rgba(248,250,252,0.05)" stroke-width="0.5">
+          <line x1="0" y1="120" x2="680" y2="120"/>
+          <line x1="0" y1="200" x2="680" y2="200"/>
+          <line x1="0" y1="280" x2="680" y2="280"/>
+          <line x1="170" y1="0" x2="170" y2="480"/>
+          <line x1="340" y1="0" x2="340" y2="480"/>
+          <line x1="510" y1="0" x2="510" y2="480"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- PERMANENT SHELL - always visible. The leased commercial space -->
+        <!-- ============================================================ -->
+
+        <!-- Building facade above storefront -->
+        <rect x="60" y="40" width="560" height="100" fill="#1E293B"/>
+        <!-- Faint upper-storey windows (existing building) -->
+        <g fill="rgba(148,163,184,0.18)">
+          <rect x="100" y="60" width="40" height="50"/>
+          <rect x="160" y="60" width="40" height="50"/>
+          <rect x="480" y="60" width="40" height="50"/>
+          <rect x="540" y="60" width="40" height="50"/>
+        </g>
+
+        <!-- Sign band - empty until phase 5 -->
+        <rect x="60" y="140" width="560" height="40" fill="#0F172A" stroke="rgba(148,163,184,0.15)" stroke-width="0.5"/>
+
+        <!-- Storefront frame (left + right pillars) -->
+        <rect x="60" y="180" width="20" height="220" fill="#1E293B"/>
+        <rect x="600" y="180" width="20" height="220" fill="#1E293B"/>
+
+        <!-- Top beam of storefront -->
+        <rect x="60" y="180" width="560" height="14" fill="#0F172A"/>
+
+        <!-- Storefront glass (the see-through window) - interior visible behind -->
+        <rect x="80" y="194" width="520" height="206" fill="rgba(125,211,252,0.04)"/>
+
+        <!-- Sidewalk -->
+        <rect x="0" y="400" width="680" height="80" fill="#1E293B"/>
+        <line x1="0" y1="400" x2="680" y2="400" stroke="#475569" stroke-width="1"/>
+
+        <!-- Concrete floor (interior, always visible) -->
+        <rect x="80" y="388" width="520" height="12" fill="#334155"/>
+
+        <!-- Bare back wall (always visible) -->
+        <rect x="80" y="194" width="520" height="200" fill="rgba(71,85,105,0.25)"/>
+
+        <!-- Window mullions (vertical dividers) - part of permanent storefront -->
+        <line x1="220" y1="194" x2="220" y2="400" stroke="rgba(148,163,184,0.4)" stroke-width="1"/>
+        <line x1="340" y1="194" x2="340" y2="400" stroke="rgba(148,163,184,0.4)" stroke-width="1"/>
+        <line x1="460" y1="194" x2="460" y2="400" stroke="rgba(148,163,184,0.4)" stroke-width="1"/>
+
+        <!-- Door frame (permanent, on right) -->
+        <rect x="540" y="200" width="60" height="200" fill="none" stroke="rgba(148,163,184,0.4)" stroke-width="1"/>
+
+        <!-- ============================================================ -->
+        <!-- CONSTRUCTION TAPE - visible early, fades out after walls -->
+        <!-- ============================================================ -->
+        <g class="bs-tape">
+          <line x1="80" y1="220" x2="600" y2="370" stroke="#FCD34D" stroke-width="3" stroke-dasharray="14 8" opacity="0.55"/>
+          <line x1="80" y1="370" x2="600" y2="220" stroke="#FCD34D" stroke-width="3" stroke-dasharray="14 8" opacity="0.55"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- PHASE 2 - Partition walls + drop ceiling -->
+        <!-- ============================================================ -->
+        <!-- Side partition walls (interior, slightly inset from storefront) -->
+        <g class="bs-walls">
+          <rect x="80" y="220" width="14" height="170" fill="#475569"/>
+          <rect x="586" y="220" width="14" height="170" fill="#475569"/>
+        </g>
+        <!-- Drop ceiling -->
+        <g class="bs-ceiling">
+          <rect x="80" y="220" width="520" height="12" fill="#334155"/>
+          <rect x="80" y="232" width="520" height="2" fill="#475569"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- PHASE 3 - Wall shelving (left + right) + counter -->
+        <!-- ============================================================ -->
+        <g class="bs-fixtures">
+          <!-- Left wall shelving -->
+          <rect x="100" y="252" width="100" height="138" fill="#475569"/>
+          <line x1="100" y1="278" x2="200" y2="278" stroke="#64748B" stroke-width="1"/>
+          <line x1="100" y1="304" x2="200" y2="304" stroke="#64748B" stroke-width="1"/>
+          <line x1="100" y1="330" x2="200" y2="330" stroke="#64748B" stroke-width="1"/>
+          <line x1="100" y1="356" x2="200" y2="356" stroke="#64748B" stroke-width="1"/>
+
+          <!-- Right wall shelving -->
+          <rect x="395" y="252" width="100" height="138" fill="#475569"/>
+          <line x1="395" y1="278" x2="495" y2="278" stroke="#64748B" stroke-width="1"/>
+          <line x1="395" y1="304" x2="495" y2="304" stroke="#64748B" stroke-width="1"/>
+          <line x1="395" y1="330" x2="495" y2="330" stroke="#64748B" stroke-width="1"/>
+          <line x1="395" y1="356" x2="495" y2="356" stroke="#64748B" stroke-width="1"/>
+        </g>
+
+        <!-- Counter / checkout (front of store) -->
+        <g class="bs-counter">
+          <rect x="230" y="328" width="155" height="62" fill="#334155"/>
+          <rect x="230" y="324" width="155" height="6" fill="#475569"/>
+          <rect x="232" y="332" width="151" height="20" fill="#1E293B" opacity="0.5"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- PHASE 4 - Lights, products, fridge -->
+        <!-- ============================================================ -->
+        <!-- Ceiling spotlights -->
+        <g class="bs-lights">
+          <rect x="148" y="234" width="14" height="6" fill="#FDE68A"/>
+          <rect x="228" y="234" width="14" height="6" fill="#FDE68A"/>
+          <rect x="308" y="234" width="14" height="6" fill="#FDE68A"/>
+          <rect x="388" y="234" width="14" height="6" fill="#FDE68A"/>
+          <rect x="468" y="234" width="14" height="6" fill="#FDE68A"/>
+        </g>
+        <!-- Light glow cones (warm interior light) -->
+        <g class="bs-glow">
+          <ellipse cx="155" cy="320" rx="55" ry="90" fill="url(#lightGlow1)"/>
+          <ellipse cx="235" cy="320" rx="55" ry="90" fill="url(#lightGlow1)"/>
+          <ellipse cx="315" cy="320" rx="55" ry="90" fill="url(#lightGlow1)"/>
+          <ellipse cx="395" cy="320" rx="55" ry="90" fill="url(#lightGlow1)"/>
+          <ellipse cx="475" cy="320" rx="55" ry="90" fill="url(#lightGlow1)"/>
+        </g>
+        <!-- Gradient definitions for light glow -->
+        <defs>
+          <radialGradient id="lightGlow1" cx="50%" cy="0%" r="60%">
+            <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.55"/>
+            <stop offset="60%" stop-color="#FDE68A" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#FDE68A" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Products on shelves (small varied colored rects) -->
+        <g class="bs-products">
+          <!-- Left shelves -->
+          <rect x="106" y="262" width="14" height="14" fill="#0369A1"/>
+          <rect x="124" y="262" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="142" y="262" width="14" height="14" fill="#0369A1"/>
+          <rect x="160" y="262" width="14" height="14" fill="#94A3B8"/>
+          <rect x="178" y="262" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="106" y="288" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="124" y="288" width="14" height="14" fill="#94A3B8"/>
+          <rect x="142" y="288" width="14" height="14" fill="#0369A1"/>
+          <rect x="160" y="288" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="178" y="288" width="14" height="14" fill="#0369A1"/>
+          <rect x="106" y="314" width="14" height="14" fill="#0369A1"/>
+          <rect x="124" y="314" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="142" y="314" width="14" height="14" fill="#94A3B8"/>
+          <rect x="160" y="314" width="14" height="14" fill="#0369A1"/>
+          <rect x="178" y="314" width="14" height="14" fill="#7DD3FC"/>
+          <!-- Right shelves -->
+          <rect x="401" y="262" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="419" y="262" width="14" height="14" fill="#0369A1"/>
+          <rect x="437" y="262" width="14" height="14" fill="#94A3B8"/>
+          <rect x="455" y="262" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="473" y="262" width="14" height="14" fill="#0369A1"/>
+          <rect x="401" y="288" width="14" height="14" fill="#94A3B8"/>
+          <rect x="419" y="288" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="437" y="288" width="14" height="14" fill="#0369A1"/>
+          <rect x="455" y="288" width="14" height="14" fill="#94A3B8"/>
+          <rect x="473" y="288" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="401" y="314" width="14" height="14" fill="#0369A1"/>
+          <rect x="419" y="314" width="14" height="14" fill="#7DD3FC"/>
+          <rect x="437" y="314" width="14" height="14" fill="#94A3B8"/>
+          <rect x="455" y="314" width="14" height="14" fill="#0369A1"/>
+          <rect x="473" y="314" width="14" height="14" fill="#7DD3FC"/>
+          <!-- Cash register on counter -->
+          <rect x="295" y="320" width="26" height="10" fill="#0F172A"/>
+          <rect x="297" y="322" width="22" height="3" fill="#7DD3FC" opacity="0.7"/>
+        </g>
+
+        <!-- Display fridge (right side near door) -->
+        <g class="bs-fridge">
+          <rect x="510" y="252" width="26" height="138" fill="#1E293B"/>
+          <rect x="514" y="258" width="18" height="125" fill="rgba(125,211,252,0.25)"/>
+          <line x1="514" y1="285" x2="532" y2="285" stroke="rgba(125,211,252,0.4)" stroke-width="0.5"/>
+          <line x1="514" y1="315" x2="532" y2="315" stroke="rgba(125,211,252,0.4)" stroke-width="0.5"/>
+          <line x1="514" y1="345" x2="532" y2="345" stroke="rgba(125,211,252,0.4)" stroke-width="0.5"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- PHASE 5 - Brand sign, awning, ÖPPET sign, customer -->
+        <!-- ============================================================ -->
+        <!-- Awning (thin canopy above storefront) -->
+        <rect class="bs-awning" x="60" y="180" width="560" height="6" fill="#0369A1"/>
+
+        <!-- Brand signage in band -->
+        <g class="bs-sign">
+          <rect x="170" y="148" width="340" height="26" rx="3" fill="#0369A1"/>
+          <text x="340" y="165" text-anchor="middle" fill="#F8FAFC" font-family="'Rubik',sans-serif" font-size="13" font-weight="700" letter-spacing="3">BUTIK NAMN</text>
+        </g>
+
+        <!-- ÖPPET sign in door window -->
+        <g class="bs-open-sign">
+          <rect x="552" y="218" width="36" height="14" rx="2" fill="#0369A1"/>
+          <text x="570" y="228" text-anchor="middle" fill="#F8FAFC" font-family="'Rubik',sans-serif" font-size="8" font-weight="700" letter-spacing="1.5">ÖPPET</text>
+        </g>
+
+        <!-- Customer silhouette (stylized human figure inside) -->
+        <g class="bs-customer">
+          <circle cx="270" cy="362" r="6" fill="rgba(248,250,252,0.5)"/>
+          <rect x="263" y="368" width="14" height="22" rx="2" fill="rgba(248,250,252,0.5)"/>
+        </g>
+
+        <!-- ============================================================ -->
+        <!-- Reference marks (architectural drawing flavor) -->
+        <!-- ============================================================ -->
+        <text x="40" y="470" font-family="'JetBrains Mono',monospace" font-size="9" fill="#475569" letter-spacing="2">A</text>
+        <text x="635" y="470" font-family="'JetBrains Mono',monospace" font-size="9" fill="#475569" letter-spacing="2">B</text>
+        <text x="340" y="470" font-family="'JetBrains Mono',monospace" font-size="9" fill="#475569" letter-spacing="2" text-anchor="middle">FAS-LINJE</text>
+      </svg>
+    </div>
+
+    <div class="build-progress" aria-hidden="true">
+      <div class="build-progress__fill" data-progress-fill></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Nyckeltal">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__title">
+        <span class="eyebrow reveal">Vi i siffror</span>
+        <h2 class="reveal">Det vi byggt under tjugo år.</h2>
+      </div>
+      <p class="section-head__body reveal">
+        Vi pratar inte gärna i siffror - men kunderna gör det åt oss.
+        Det här är vad de återkommande relationerna ser ut som i runda tal.
+      </p>
+    </div>
+
+    <dl class="stats reveal">
+      <div class="stat">
+        <dd class="stat__num"><span data-counter="20">0</span><span class="unit">år</span></dd>
+        <dt class="stat__label">I branschen</dt>
+      </div>
+      <div class="stat">
+        <dd class="stat__num"><span data-counter="500">0</span><span class="unit">+</span></dd>
+        <dt class="stat__label">Etableringar</dt>
+      </div>
+      <div class="stat">
+        <dd class="stat__num"><span data-counter="92">0</span><span class="unit">%</span></dd>
+        <dt class="stat__label">Återkommande kunder</dt>
+      </div>
+      <div class="stat">
+        <dd class="stat__num"><span data-counter="100">0</span><span class="unit">+</span></dd>
+        <dt class="stat__label">Tekniker i nätverket</dt>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section-tint" aria-label="Kunder vi jobbat med">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__title">
+        <span class="eyebrow reveal">Ett urval kunder</span>
+        <h2 class="reveal">Kedjor vi byggt och servar idag.</h2>
+      </div>
+      <p class="section-head__body reveal">
+        Från restaurangkedjor till retail. Hela referenslistan delar vi gärna
+        på begäran.
+      </p>
+    </div>
+
+    <div class="clients-grid reveal">
+      <div class="client-tile">Subway</div>
+      <div class="client-tile">HMY</div>
+      <div class="client-tile">Anyplace<br>Media Group</div>
+      <div class="client-tile">Swegreen</div>
+      <div class="client-tile">Naked<br>Juicebar</div>
+      <div class="client-tile">+ flera</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Hur vi servar i drift">
+  <div class="container">
+    <div class="featured reveal">
+      <div class="featured__media">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Servicebil mellan Skåne och Stockholm" loading="lazy" />
+        <span class="featured__caption">Service · rikstäckande</span>
+      </div>
+      <div>
+        <span class="eyebrow">Service som finns där dygnet runt</span>
+        <h2>Felanmälan klockan 22 fredag.<br>Åtgärdat i tid till lördagsöppning.</h2>
+        <p>
+          Via vårt serviceavtal får du en partner som hanterar felanmälningar
+          och butiksdrift åt stora kedjeföretag. När en frys slutar funka är
+          det inte vår väntetid som avgör om butiken öppnar imorgon.
+        </p>
+        <p>
+          Det är därför vi byggt ett rikstäckande nätverk av servicetekniker
+          och underentreprenörer. En väg in, oavsett var i landet butiken finns.
+        </p>
+        <a href="services.html" class="btn btn--primary">
+          Läs om serviceavtalet
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Kontakta oss">
+  <div class="container">
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="color:#7DD3FC;justify-content:center">Nästa steg</span>
+      <h2>Funderar du på en nyetablering eller ombyggnation?</h2>
+      <p>
+        Christoffer eller Jonas hör av sig inom två arbetsdagar. Inga säljmöten,
+        inga offerter förrän det finns något konkret att räkna på.
+      </p>
+      <div class="cta-band__buttons">
+        <a href="contact.html" class="btn btn--primary btn--lg">
+          Boka ett samtal
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a href="tel:0720666009" class="btn btn--ghost-on-dark btn--lg">
+          Ring 072-066 60 09
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>SCA-CON</h3>
+        <p>Komplett bygg-, installations- och serviceföretag inom konceptbyggnation. Tjugo år av återkommande kedjekunder.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Utforska</h4>
+        <ul>
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="services.html">Tjänster</a></li>
+          <li><a href="projects.html">Referenser</a></li>
+          <li><a href="sustainability.html">Hållbarhet</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontor</h4>
+        <ul>
+          <li>Småbåtshamnen 18F<br>263 39 Höganäs (HK)</li>
+          <li style="margin-top:0.6rem">Älvvägen 10<br>446 37 Älvängen</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:0720666009">072-066 60 09</a></li>
+          <li><a href="mailto:info@sca-con.se">info@sca-con.se</a></li>
+          <li><a href="mailto:felanmalan@sca-con.se">felanmalan@sca-con.se</a></li>
+          <li><a href="mailto:faktura@sca-con.se">faktura@sca-con.se</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Scandinavian Construction &amp; Management AB</div>
+      <div>
+        <a href="https://sca-con.se/privacy-policy.html">Integritetspolicy</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/company/scandinavian-construction-management-ab/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const header = document.querySelector('.site-header');
+  if(header){
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  const burger = document.querySelector('.burger');
+  const mnav = document.getElementById('mobile-nav');
+  if(burger && mnav){
+    mnav.removeAttribute('hidden');
+    burger.addEventListener('click', () => {
+      const open = mnav.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mnav.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }));
+  }
+
+  if(typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined'){
+    document.querySelectorAll('.reveal').forEach(el => {
+      if(reduced){ el.classList.add('is-visible'); return; }
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      }), { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      io.observe(el);
+    });
+    document.querySelectorAll('[data-counter]').forEach(el => {
+      const t = parseFloat(el.dataset.counter);
+      el.textContent = t.toLocaleString('sv-SE');
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if(reduced){
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => el.classList.add('is-visible')
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-counter]').forEach(el => {
+    const target = parseFloat(el.dataset.counter);
+    if(reduced){ el.textContent = target.toLocaleString('sv-SE'); return; }
+    const obj = { val: 0 };
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          val: target, duration: 1.8, ease: 'expo.out',
+          onUpdate: () => { el.textContent = Math.floor(obj.val).toLocaleString('sv-SE'); },
+          onComplete: () => { el.textContent = target.toLocaleString('sv-SE'); }
+        });
+      }
+    });
+  });
+
+  const seq = document.getElementById('build-sequence');
+  const stage = seq?.querySelector('.build-stage');
+  const svg = seq?.querySelector('.bs-base');
+  const sNum = seq?.querySelector('[data-stage-num]');
+  const sTitle = seq?.querySelector('[data-stage-title]');
+  const sDesc = seq?.querySelector('[data-stage-desc]');
+  const pFill = seq?.querySelector('[data-progress-fill]');
+  const phaseChips = seq?.querySelectorAll('.build-phase');
+
+  if(seq && svg && !reduced){
+    const stages = [
+      { n:'01', t:'Tom lokal',     d:'En befintlig butikslokal - tom, opersonlig, redo. Genomgång på plats, ritning, tidsplan. Kedjans drift och butikspersonalens vardag bestämmer hur arbetet sekvenseras.' },
+      { n:'02', t:'Plan & väggar', d:'Planlösning sätts ut. Skiljeväggar och undertak kommer på plats. Lokalen börjar formas till en butik istället för en kvadrat.' },
+      { n:'03', t:'Inredning',     d:'Hyllsystem, butiksdiskar och kassakanalen monteras enligt kedjans koncept. Det här är där butikens identitet faktiskt börjar synas.' },
+      { n:'04', t:'Installation',  d:'El, belysning, kassasystem, kyl och skyltning. Tekniken som gör att butiken fungerar från första kund första dagen.' },
+      { n:'05', t:'Öppning',       d:'Skyltning utvändigt, ÖPPET-skylt i fönstret, varorna på plats. Sedan tar serviceavtalet vid och vi finns kvar i bakgrunden.' }
+    ];
+    let lastIdx = -1;
+
+    ScrollTrigger.create({
+      trigger: seq,
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        const p = self.progress;
+        svg.style.setProperty('--p', p.toFixed(4));
+        if(pFill) pFill.style.transform = `scaleX(${p})`;
+        const idx = Math.min(stages.length - 1, Math.floor(p * stages.length));
+        if(idx !== lastIdx){
+          const s = stages[idx];
+          sNum.textContent = s.n;
+          sTitle.textContent = s.t;
+          sDesc.textContent = s.d;
+          phaseChips.forEach((c, i) => c.classList.toggle('is-current', i === idx));
+          lastIdx = idx;
+        }
+      }
+    });
+  } else if(seq && reduced){
+    svg.style.setProperty('--p', '1');
+    phaseChips[phaseChips.length - 1]?.classList.add('is-current');
+  }
+
+  let rT;
+  window.addEventListener('resize', () => {
+    clearTimeout(rT);
+    rT = setTimeout(() => ScrollTrigger.refresh(), 200);
+  });
+})();
+</script>
+
+</body>
+</html>

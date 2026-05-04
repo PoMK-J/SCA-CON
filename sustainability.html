@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sustainability - SCA-CON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ========== Shared design system (inlined for portability) ========== */
+/* ==========================================================================
+   SCA-CON CO. - Konceptbyggnation & service
+   Design system: BMW-inspired (dark premium surfaces, precise engineering)
+   Reference: awesome-design-md / getdesign.md
+   ========================================================================== */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);font-size:16px;line-height:1.55;color:var(--text);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,picture,video{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+/* ================= DESIGN TOKENS ================= */
+:root{
+  --bg:#F8FAFC; --bg-elev:#FFFFFF; --bg-tint:#EEF2F7;
+  --bg-dark:#0F172A; --bg-dark-elev:#1E293B;
+  --text-on-dark:#F8FAFC; --text-muted-on-dark:#94A3B8;
+  --t-fast:200ms; --t-med:350ms;
+  --text:#020617; --text-strong:#0F172A;
+  --text-muted:#475569; --text-subtle:#64748B;
+  --hairline:rgba(15,23,42,0.06);
+  --hairline-strong:rgba(15,23,42,0.18);
+  --hairline-dark:rgba(15,23,42,0.06);
+  --hairline-dark-strong:rgba(15,23,42,0.18);
+  --accent:#0369A1; --accent-hover:#075985;
+  --font-display:'Rubik','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-body:'Nunito Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'Courier New',monospace;
+  --container:1280px; --gutter:clamp(1.25rem,3vw,2.5rem); --header-h:80px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+}
+
+/* ================= TYPOGRAPHY ================= */
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-strong);font-weight:500;line-height:1.1;letter-spacing:-0.02em}
+h1{font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:500;letter-spacing:-0.025em;line-height:1.05}
+h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:500}
+h3{font-size:clamp(1.25rem,2vw,1.65rem);font-weight:500;letter-spacing:-0.01em;line-height:1.25}
+p{max-width:62ch;font-weight:400}
+
+.eyebrow{font-family:var(--font-mono);font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
+.eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+
+.lead{font-family:var(--font-display);font-weight:300;font-size:clamp(1.4rem,2.2vw,2rem);line-height:1.2;letter-spacing:-0.005em;text-transform:none}
+
+/* Light section reversal */
+.section-light{background:var(--bg);color:var(--text-strong)}
+.section-light .eyebrow,.section-light .meta{color:#646461}
+.section-light h1,.section-light h2,.section-light h3{color:var(--text-strong)}
+
+/* ================= LAYOUT ================= */
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:clamp(5rem,10vw,9rem) 0;position:relative}
+.section--tight{padding:clamp(3rem,5vw,4.5rem) 0}
+
+/* ================= BUTTONS ================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.85rem 1.4rem;font-family:var(--font-body);font-size:0.95rem;font-weight:600;letter-spacing:-0.005em;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all 200ms cubic-bezier(0.22,1,0.36,1);white-space:nowrap;min-height:44px;text-transform:none}
+.btn--primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 6px -1px rgba(15,23,42,0.1)}
+.btn--primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);box-shadow:0 10px 25px -5px rgba(15,23,42,0.15);transform:translateY(-1px)}
+.btn--light{background:var(--text);color:var(--text-strong);border-color:var(--text)}
+.btn--light:hover{background:transparent;color:var(--text)}
+.btn--ghost-light{background:transparent;color:var(--text-strong);border-color:var(--border)}
+.btn--ghost-light:hover{border-color:var(--border-strong);background:var(--bg-tint)}
+
+
+.btn--solid{background:var(--text-strong);color:var(--text)}
+.btn--solid:hover{background:var(--accent)}
+.btn .arr{transition:transform 0.35s var(--ease);display:inline-block}
+.btn:hover .arr{transform:translateX(5px)}
+
+/* ================= HEADER ================= */
+
+
+
+@media (min-width:760px){}
+
+@keyframes letter-up{to{transform:translateY(0)}}
+@keyframes mark-draw{from{opacity:0;transform:rotate(-12deg) scale(0.6)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes girder-slide{from{transform:rotate(-45deg) translateX(-120%)}to{transform:rotate(-45deg) translateX(0)}}
+@keyframes girder-dot{from{transform:translate(-50%,-50%) rotate(45deg) scale(0)}to{transform:translate(-50%,-50%) rotate(45deg) scale(1)}}
+@keyframes fade-in{to{opacity:1}}
+
+
+
+
+
+
+.header-cta{display:none}
+@media (min-width:980px){.header-cta{display:inline-flex}}
+.burger{display:grid;place-items:center;width:44px;height:44px;position:relative;color:var(--text)}
+@media (min-width:980px){.burger{display:none}}
+.burger span{position:absolute;left:12px;right:12px;height:1px;background:currentColor;transition:transform 0.3s var(--ease),top 0.3s var(--ease),opacity 0.2s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.burger.is-open span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+.mobile-nav{position:fixed;inset:0;background:var(--bg);z-index:90;padding:calc(var(--header-h) + 2rem) var(--gutter) 2rem;transform:translateY(-100%);transition:transform 0.5s var(--ease-out-expo);display:flex;flex-direction:column}
+.mobile-nav.is-open{transform:translateY(0)}
+.mobile-nav a{font-family:var(--font-display);font-size:2.3rem;font-weight:300;text-transform:uppercase;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--text);transition:color 0.3s,padding 0.3s}
+.mobile-nav a:hover{color:var(--accent);padding-left:0.5rem}
+
+/* ================= PAGE HERO ================= */
+.page-hero{position:relative;padding:calc(var(--header-h) + 4.5rem) 0 4rem;background:linear-gradient(180deg,var(--bg-tint) 0%,var(--bg) 100%);overflow:hidden;border-bottom:1px solid var(--border)}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);pointer-events:none}
+.page-hero > .container{position:relative;z-index:1}
+.page-hero__grid{display:grid;gap:2rem;align-items:end;grid-template-columns:1fr}
+@media (min-width:780px){.page-hero__grid{grid-template-columns:1.5fr 1fr;gap:4rem}}
+.page-hero h1{font-size:clamp(2.25rem,4.5vw,3.6rem);font-weight:500;letter-spacing:-0.025em;line-height:1.05}
+.page-hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.page-hero__text{max-width:44ch;color:var(--text-muted);font-size:1.05rem;line-height:1.6}
+
+/* ================= SECTION HEAD ================= */
+.section-head{display:grid;gap:1.5rem;grid-template-columns:1fr;margin-bottom:clamp(3rem,6vw,5rem);align-items:end}
+@media (min-width:780px){.section-head{grid-template-columns:1fr 1fr;gap:4rem}}
+.section-head__title h2{max-width:18ch}
+.section-head__body{color:var(--text-muted);font-size:1.05rem;max-width:48ch}
+.section-light .section-head__body{color:#646461}
+
+/* ================= PILLARS ================= */
+.pillars{display:grid;gap:1px;background:var(--border);grid-template-columns:1fr;border:1px solid var(--border)}
+@media (min-width:780px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{background:var(--bg);padding:clamp(2rem,3.5vw,3rem);display:flex;flex-direction:column;gap:1.25rem;transition:background 0.4s}
+.pillar:hover{background:var(--bg-elev)}
+.pillar__num{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase}
+.pillar h3{max-width:14ch}
+.pillar p{color:var(--text-muted);font-size:0.98rem}
+.section-light .pillars{background:var(--border);border-color:var(--border)}
+.section-light .pillar{background:var(--bg)}
+.section-light .pillar:hover{background:var(--bg-tint)}
+.section-light .pillar p{color:#646461}
+
+/* ================= SPLIT ================= */
+.split{display:grid;gap:clamp(2.5rem,5vw,5rem);grid-template-columns:1fr;align-items:center}
+@media (min-width:880px){.split{grid-template-columns:1fr 1fr}.split--flip > :first-child{order:2}}
+.split__media{position:relative;aspect-ratio:4/5;overflow:hidden}
+.split__media img{width:100%;height:100%;object-fit:cover}
+.split__media .caption{position:absolute;left:1rem;bottom:1rem;font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);background:rgba(15,23,42,0.85);padding:0.4rem 0.7rem;backdrop-filter:blur(6px);border:1px solid var(--border)}
+.split__text h2{margin-bottom:1.5rem}
+.split__text p{color:var(--text-muted);margin-bottom:1.25rem;max-width:48ch}
+.split__text .btn{margin-top:1rem}
+.section-light .split__text p{color:#646461}
+
+/* ================= STATS ================= */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media (min-width:780px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{padding:clamp(2rem,4vw,3rem) 1.5rem;background:var(--bg)}
+.stat__num{font-family:var(--font-display);font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:300;line-height:1;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.stat__num .unit{font-size:0.4em;color:var(--accent);font-weight:400;letter-spacing:0;margin-left:0.2em}
+.stat__label{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.section-light .stats{background:var(--border);border-color:var(--border)}
+.section-light .stat{background:var(--bg)}
+.section-light .stat__label{color:#646461}
+
+/* ================= CTA ================= */
+.cta-band{text-align:center;padding:clamp(4rem,8vw,7rem) var(--gutter);background:linear-gradient(135deg,#0F172A 0%,#1E293B 100%);color:#F8FAFC;position:relative;overflow:hidden;border-radius:16px}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 100%,rgba(3,105,161,0.25),transparent 50%),radial-gradient(circle at 80% 0%,rgba(125,211,252,0.12),transparent 50%);pointer-events:none}
+.cta-band > *{position:relative;z-index:1}
+.cta-band h2{color:#F8FAFC;max-width:22ch;margin:0 auto 1.5rem}
+.cta-band p{color:#94A3B8;margin:0 auto 2rem;max-width:48ch}
+.cta-band .eyebrow{color:#7DD3FC;justify-content:center}
+.cta-band__buttons{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.cta-band .btn{margin:0 0.35rem 0.5rem}
+
+/* ================= GALLERY ================= */
+.gallery-strip{display:grid;gap:1px;grid-template-columns:1fr;background:var(--bg)}
+@media (min-width:780px){.gallery-strip{grid-template-columns:repeat(3,1fr)}}
+.gallery-card{position:relative;aspect-ratio:4/5;overflow:hidden;display:block;color:var(--text)}
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.gallery-card:hover img{transform:scale(1.06)}
+.gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.78),transparent 60%)}
+.gallery-card__info{position:absolute;left:0;right:0;bottom:0;padding:clamp(1.5rem,3vw,2.25rem);z-index:2}
+.gallery-card__kicker{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.8;margin-bottom:0.5rem;display:block}
+.gallery-card h3{color:var(--text);font-size:clamp(1.2rem,2vw,1.65rem)}
+
+/* ================= FORM ================= */
+.contact-grid{display:grid;gap:clamp(2.5rem,5vw,4rem);grid-template-columns:1fr}
+@media (min-width:880px){.contact-grid{grid-template-columns:1fr 1.1fr}}
+.contact-info h2{margin-bottom:1.5rem}
+.contact-info p{color:var(--text-muted);margin-bottom:1.25rem}
+.section-light .contact-info p{color:#646461}
+.contact-info__row{padding:1.25rem 0;border-top:1px solid var(--border);display:grid;grid-template-columns:120px 1fr;gap:1rem;font-size:0.95rem}
+.contact-info__row:last-child{border-bottom:1px solid var(--border)}
+.contact-info__row dt{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.section-light .contact-info__row{border-color:var(--border)}
+.section-light .contact-info__row:last-child{border-color:var(--border)}
+.section-light .contact-info__row dt{color:#646461}
+.form{display:grid;gap:1.25rem;background:var(--bg-elev);padding:clamp(1.75rem,3.5vw,2.75rem);border:1px solid var(--border)}
+.section-light .form{background:rgba(15,23,42,0.03);border-color:var(--border)}
+.form__row{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media (min-width:620px){.form__row--2{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:0.5rem}
+.field label{font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted)}
+.field input,.field select,.field textarea{font:inherit;font-size:0.95rem;background:transparent;border:none;border-bottom:1px solid var(--border-strong);padding:0.6rem 0;color:var(--text);transition:border-color 0.3s;font-family:var(--font-body)}
+.field select{appearance:none}
+.field select option{background:var(--bg-elev);color:var(--text)}
+.section-light .field input,.section-light .field select,.section-light .field textarea{color:var(--text-strong);border-bottom-color:var(--border-strong)}
+.section-light .field select option{background:var(--bg);color:var(--text-strong)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:120px}
+
+/* ================= FOOTER ================= */
+.site-footer{background:var(--bg);color:rgba(15,23,42,0.65);padding:clamp(3.5rem,6vw,5.5rem) 0 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;gap:2.5rem;grid-template-columns:1fr;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+@media (min-width:720px){.footer-grid{grid-template-columns:1.3fr repeat(3,1fr)}}
+.footer-col h4{font-family:var(--font-mono);font-size:0.7rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);margin-bottom:1.25rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:0.6rem;font-size:0.9rem}
+.footer-col a{transition:color 0.3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-brand h3{color:var(--text);font-size:1.5rem;margin-bottom:1rem;letter-spacing:0.02em}
+.footer-brand p{font-size:0.9rem;max-width:28ch;line-height:1.55}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:2rem;font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted)}
+.footer-bottom a:hover{color:var(--accent)}
+
+/* ================= REVEAL ================= */
+.reveal-on-scroll{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease-out-expo),transform 1s var(--ease-out-expo)}
+.reveal-on-scroll.is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}.reveal-on-scroll{opacity:1;transform:none}}
+
+/* ================= PULLQUOTE ================= */
+.pullquote{font-family:var(--font-display);font-size:clamp(1.75rem,4vw,3.5rem);font-weight:300;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;max-width:20ch;margin:0 auto;text-align:center}
+.pullquote__attrib{display:block;margin-top:2.5rem;font-family:var(--font-mono);font-size:0.7rem;font-style:normal;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);font-weight:400}
+
+::selection{background:var(--accent);color:var(--text)}
+.rule{height:1px;background:var(--border);border:none;margin:0}
+
+
+/* Image container fallbacks - if an image fails, container shows a dark gradient instead of collapsing */
+.hero__media{background:var(--bg-tint)}
+.split__media,.gallery-card,.proj,.leader__img,.office{background:var(--bg-tint)}
+
+
+/* Ensure light sections have appropriate image fallback */
+.section-light .split__media,.section-light .leader__img{background:var(--bg-tint)}
+
+
+/* Logo (real image with text fallback) */
+@media (min-width:780px){}
+:root{--brand:#0F172A}
+
+.logo{display:inline-flex;align-items:center;gap:0.7rem;text-decoration:none;color:var(--text-strong)}
+.logo__chip{display:inline-flex;align-items:center;height:56px;padding:0 16px;background:#0F172A;border-radius:10px;box-shadow:0 1px 2px rgba(15,23,42,0.08),inset 0 0 0 1px rgba(125,211,252,0.1);transition:box-shadow var(--t-fast),transform var(--t-fast)}
+.logo:hover .logo__chip{box-shadow:0 6px 16px rgba(15,23,42,0.14),inset 0 0 0 1px rgba(125,211,252,0.22)}
+.logo__img{height:40px;width:auto;display:block}
+</style>
+<style>
+  /* Commitments - a big vertical list */
+  .commitments {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--border-strong);
+  }
+  .commit {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  @media (min-width: 880px) {
+    .commit {
+      grid-template-columns: 180px 1fr 1fr;
+      gap: 3rem;
+      padding: 3.5rem 0;
+      align-items: start;
+    }
+  }
+  .commit__tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.5rem;
+  }
+  .commit__head h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    max-width: 20ch;
+  }
+  .commit__body { color: var(--text-muted); max-width: 52ch; }
+  .commit__body .metric {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .commit__body .metric em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .commit__body .metric-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Progress bars */
+  .progress {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .p-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .p-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .p-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .p-fill {
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left;
+    transition: transform 1.4s var(--ease-out-expo);
+    transform: scaleX(0);
+  }
+  .reveal-on-scroll.is-visible .p-fill { transform: scaleX(var(--pct, 0.5)); }
+  .p-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Button - ghost variant on dark backgrounds */
+.btn--ghost-on-dark{background:transparent;color:#F8FAFC;border:1px solid rgba(248,250,252,0.25)}
+.btn--ghost-on-dark:hover{background:rgba(248,250,252,0.08);border-color:rgba(248,250,252,0.5)}
+.cta-band__buttons{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-top:0.5rem}
+/* ==== HEADER & NAV (unified across all pages) ==== */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(248,250,252,0.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid transparent;transition:background var(--t-med,350ms),border-color var(--t-med,350ms)}
+.site-header.is-scrolled{background:rgba(248,250,252,0.98);border-bottom-color:var(--border);box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:var(--header-h)}
+.nav{display:none}
+@media (min-width:980px){.nav{display:flex;align-items:center;gap:0.25rem}}
+.nav a{position:relative;padding:0.5rem 0.9rem;font-size:0.95rem;font-weight:500;color:var(--text-muted);border-radius:6px;transition:color var(--t-fast,200ms),background var(--t-fast,200ms);text-transform:none;letter-spacing:normal}
+.nav a:hover{color:var(--text-strong);background:var(--bg-tint)}
+.nav a.is-active{color:var(--accent);background:var(--accent-tint)}
+.nav a::after{display:none}
+.header-cta{display:none}
+@media (min-width:980px){.header-cta{display:inline-flex}}
+.burger{display:grid;place-items:center;width:44px;height:44px;border-radius:6px;position:relative;color:var(--text-strong)}
+@media (min-width:980px){.burger{display:none}}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;border-radius:1px;transition:all 350ms cubic-bezier(0.22,1,0.36,1)}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:28px}
+.burger.is-open span:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){top:21px;transform:rotate(-45deg)}
+.mobile-nav{position:fixed;inset:0;background:var(--bg);z-index:45;padding:calc(var(--header-h) + 2rem) var(--gutter) 2rem;transform:translateY(-100%);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column}
+.mobile-nav.is-open{transform:translateY(0)}
+.mobile-nav a{font-family:var(--font-display);font-size:1.85rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--text-strong);text-transform:none;letter-spacing:-0.01em}
+.mobile-nav a::after{display:none}
+.mobile-nav__cta{margin-top:auto;padding-top:2rem}
+
+/* ==== VISUAL VARIETY (inner pages) ==== */
+/* Tighten section rhythm */
+.section{padding:clamp(3.5rem,7vw,6rem) 0}
+
+/* Make section-light more distinct from main bg */
+.section-light{background:var(--bg-tint)}
+
+/* Strong dark variant - high contrast section */
+.section-dark{background:var(--bg-dark);color:var(--text-on-dark);position:relative;overflow:hidden}
+.section-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(3,105,161,0.18),transparent 50%),radial-gradient(ellipse at 0% 100%,rgba(125,211,252,0.08),transparent 50%);pointer-events:none}
+.section-dark > .container{position:relative;z-index:1}
+.section-dark h1,.section-dark h2,.section-dark h3,.section-dark h4{color:var(--text-on-dark)}
+.section-dark .eyebrow{color:#7DD3FC}
+.section-dark p{color:var(--text-muted-on-dark)}
+.section-dark .section-head__body{color:var(--text-muted-on-dark)}
+
+/* Card variants for use on dark sections */
+.section-dark .pillar,
+.section-dark .commit{background:rgba(248,250,252,0.04);border-color:rgba(248,250,252,0.1);color:var(--text-on-dark)}
+.section-dark .pillar h3,
+.section-dark .commit h3,
+.section-dark .commit__head h3{color:var(--text-on-dark)}
+.section-dark .pillar p,
+.section-dark .commit p{color:var(--text-muted-on-dark)}
+.section-dark .pillar:hover{border-color:rgba(125,211,252,0.4);background:rgba(248,250,252,0.06)}
+.section-dark .pillar__icon{background:rgba(125,211,252,0.12);color:#7DD3FC}
+.section-dark .pillar__num,
+.section-dark .commit__tag{color:#7DD3FC}
+
+/* Timeline on dark */
+.section-dark .timeline{position:relative}
+.section-dark .timeline::before{background:rgba(248,250,252,0.12)}
+.section-dark .t-item h4{color:var(--text-on-dark)}
+.section-dark .t-item p{color:var(--text-muted-on-dark)}
+.section-dark .t-year{color:#7DD3FC}
+
+/* Decorative grid pattern utility */
+.deco-grid{position:relative}
+.deco-grid::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 50%,#000 30%,transparent 80%);pointer-events:none}
+.deco-grid > .container{position:relative;z-index:1}
+.section-dark.deco-grid::before{background-image:linear-gradient(rgba(248,250,252,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(248,250,252,0.04) 1px,transparent 1px)}
+
+/* Accent strip - thin colored line at section top for visual rhythm */
+.accent-strip{position:relative}
+.accent-strip::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:var(--accent);border-radius:0 0 3px 3px}
+
+/* Image-bleed band (large quote / statement section) */
+.statement-band{padding:clamp(4rem,8vw,7rem) 0;text-align:center;background:var(--bg-dark);color:var(--text-on-dark);position:relative;overflow:hidden}
+.statement-band::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(3,105,161,0.25),transparent 50%);pointer-events:none}
+.statement-band__inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 var(--gutter)}
+.statement-band__quote{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);font-weight:500;line-height:1.25;letter-spacing:-0.02em;margin-bottom:1.5rem;color:var(--text-on-dark)}
+.statement-band__quote em{color:#7DD3FC;font-style:italic;font-weight:500}
+.statement-band__attr{font-family:var(--font-mono);font-size:0.72rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#7DD3FC;display:inline-flex;align-items:center;gap:0.6rem}
+.statement-band__attr::before{content:"";width:24px;height:1px;background:currentColor}
+
+/* Progress bars on dark section (sustainability.html) */
+.section-dark .p-bar{background:rgba(248,250,252,0.1)}
+.section-dark .p-fill{background:linear-gradient(to right,#7DD3FC,#0369A1)}
+.section-dark .p-label{color:var(--text-on-dark)}
+.section-dark .p-desc{color:var(--text-muted-on-dark)}
+
+/* ==== DARK-SECTION BULLETPROOFING ==== */
+/* These rules use explicit hex values + high specificity so they work
+   regardless of CSS variable availability or parent inheritance. */
+
+.section-dark,
+.section-dark *:not(.btn):not(svg):not(svg *){color:#F8FAFC}
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5{color:#F8FAFC !important}
+.section-dark p,
+.section-dark li,
+.section-dark dd,
+.section-dark .section-head__body{color:#94A3B8 !important}
+.section-dark .eyebrow,
+.section-dark dt{color:#7DD3FC !important}
+
+/* Card variants on dark */
+.section-dark .pillar,
+.section-dark .commit,
+.section-dark .cap,
+.section-dark .leader__img,
+.section-dark .office,
+.section-dark .stat{background:rgba(248,250,252,0.04);border-color:rgba(248,250,252,0.1)}
+.section-dark .pillar h3,
+.section-dark .commit h3,
+.section-dark .commit__head h3,
+.section-dark .cap h4{color:#F8FAFC !important}
+.section-dark .pillar p,
+.section-dark .commit p,
+.section-dark .cap li{color:#94A3B8 !important}
+.section-dark .pillar:hover{border-color:rgba(125,211,252,0.4);background:rgba(248,250,252,0.06)}
+.section-dark .pillar__icon{background:rgba(125,211,252,0.12);color:#7DD3FC}
+.section-dark .pillar__num,
+.section-dark .commit__tag,
+.section-dark .stat__label{color:#7DD3FC !important}
+.section-dark .stat__num{color:#F8FAFC !important}
+.section-dark .stat__num .unit{color:#7DD3FC !important}
+.section-dark .cap li::before{color:#7DD3FC}
+.section-dark .cap li{border-top-color:rgba(248,250,252,0.08) !important}
+
+/* Timeline on dark */
+.section-dark .timeline::before,
+.section-dark .timeline::after{background:rgba(248,250,252,0.12) !important}
+.section-dark .t-item{background:transparent}
+.section-dark .t-item h4{color:#F8FAFC !important}
+.section-dark .t-item p{color:#94A3B8 !important}
+.section-dark .t-year{color:#7DD3FC !important}
+.section-dark .t-item::before{background:#7DD3FC !important;box-shadow:0 0 0 4px rgba(125,211,252,0.15) !important}
+
+/* Stats grid on dark - fix the broken white-block issue */
+.section-dark .stats{background:transparent !important;border-color:rgba(248,250,252,0.1) !important}
+.section-dark .stat{background:transparent !important;border-color:rgba(248,250,252,0.1) !important}
+
+/* Statement band - bulletproof text colors */
+.statement-band,
+.statement-band *:not(svg):not(svg *){color:#F8FAFC}
+.statement-band__quote{color:#F8FAFC !important}
+.statement-band__quote em{color:#7DD3FC !important;font-style:italic}
+.statement-band__attr{color:#7DD3FC !important}
+
+/* ==== KOENIGSEGG-STYLE CLEANUP - clean rectangular sections, no crossover ==== */
+
+/* Kill all decorative pattern overlays that cause visual crossover */
+.page-hero::before{display:none !important}
+.section-dark::before{display:none !important}
+.deco-grid::before{display:none !important}
+.statement-band::before{display:none !important}
+.cta-band::before{display:none !important}
+
+/* Solid section backgrounds - committed colors, clean boundaries */
+.section-dark{background:#0F172A !important;color:#F8FAFC}
+.statement-band{background:#0F172A !important}
+.cta-band{background:#0F172A !important;border-radius:0 !important}
+
+/* Page hero - cleaner, single solid bg, no gradient */
+.page-hero{background:var(--bg-tint) !important;border-bottom:none !important}
+
+/* Section transitions - committed, no fade between */
+.section{position:relative}
+
+/* Remove the chip-like card styling that doesn't fit Koenigsegg-clean aesthetic */
+/* Keep cards but with cleaner edges */
+.pillar,.commit,.cap,.office{box-shadow:none !important}
+
+/* Statement band - bigger, fuller, with clear vertical breathing room */
+.statement-band{padding:clamp(5rem,10vw,9rem) 0 !important}
+.statement-band__inner{max-width:880px !important}
+.statement-band__quote{font-size:clamp(1.7rem,3.5vw,3rem) !important;line-height:1.2 !important;letter-spacing:-0.02em !important}
+
+/* Killing the deco-grid grid lines completely */
+
+
+/* ==== CARD TREATMENT — match index pillar style across inner pages ==== */
+/* .pillar override — use index card styling (white bg, border, rounded, hover lift) */
+.pillar{background:var(--bg-elev) !important;border:1px solid var(--border) !important;border-radius:14px !important;padding:2rem !important;display:flex !important;flex-direction:column !important;gap:1rem !important;transition:transform 350ms cubic-bezier(0.22,1,0.36,1),box-shadow 350ms,border-color 350ms !important}
+.pillar:hover{transform:translateY(-4px) !important;box-shadow:0 10px 30px -10px rgba(15,23,42,0.15) !important;border-color:#7DD3FC !important;background:var(--bg-elev) !important;padding-left:2rem !important;padding-right:2rem !important}
+.pillar__num{font-family:var(--font-mono);font-size:0.72rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)}
+.pillar h3{max-width:none}
+.pillar p{color:var(--text-muted);font-size:0.98rem;line-height:1.6}
+.section-light .pillar{background:#fff !important;border-color:var(--border)}
+.section-light .pillar:hover{background:#fff !important}
+
+/* .svc-row — give it card-like hover treatment so rows feel discrete */
+.svc-list{border-top:none !important;display:flex;flex-direction:column;gap:0.75rem}
+.svc-row{background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:2rem !important;border-bottom:1px solid var(--border) !important;transition:transform 350ms cubic-bezier(0.22,1,0.36,1),box-shadow 350ms,border-color 350ms;text-decoration:none}
+.svc-row:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(15,23,42,0.12) !important;border-color:#7DD3FC !important;background:var(--bg-elev) !important;padding-left:2rem !important;padding-right:2rem !important}
+@media (min-width:780px){.svc-row{padding:2.25rem 2.5rem !important}.svc-row:hover{padding-left:2.5rem !important;padding-right:2.5rem !important}}
+.section-light .svc-list{border:none}
+.section-light .svc-row{background:#fff;border-color:var(--border)}
+
+/* .commit — sustainability commitment cards */
+.commit{background:var(--bg-elev) !important;border:1px solid var(--border) !important;border-radius:14px !important;padding:2.25rem !important;border-bottom:1px solid var(--border) !important;transition:transform 350ms cubic-bezier(0.22,1,0.36,1),box-shadow 350ms,border-color 350ms;margin-bottom:1.25rem}
+.commit:hover{transform:translateY(-3px);box-shadow:0 10px 30px -10px rgba(15,23,42,0.12);border-color:#7DD3FC}
+@media (min-width:880px){.commit{padding:2.5rem !important}}
+.section-light .commit{background:#fff !important}
+
+/* ==== MANIFESTO SPLIT (Vår hållning section) ==== */
+.manifesto-split{display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,0.04),0 4px 14px -4px rgba(15,23,42,0.06)}
+@media (min-width:880px){.manifesto-split{grid-template-columns:1.05fr 1fr;min-height:520px}}
+.manifesto-split__media{position:relative;overflow:hidden;background:linear-gradient(135deg,#0F172A 0%,#1E293B 60%,#0369A1 140%);min-height:380px;display:flex;align-items:center;justify-content:center;padding:clamp(2rem,4vw,3rem)}
+@media (min-width:880px){.manifesto-split__media{min-height:auto}}
+.manifesto-split__pattern{position:absolute;inset:0;pointer-events:none}
+.manifesto-split__pattern svg{width:100%;height:100%;display:block}
+.manifesto-split__centerpiece{position:relative;z-index:1;display:flex;flex-direction:column;gap:0.85rem;align-items:flex-start;max-width:340px}
+.manifesto-split__kicker{font-family:var(--font-mono);font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#7DD3FC;display:inline-flex;align-items:center;gap:0.6rem}
+.manifesto-split__kicker::before{content:"";width:24px;height:1px;background:currentColor}
+.manifesto-split__stat{font-family:var(--font-display);font-size:clamp(3.5rem,7vw,5.5rem);font-weight:500;line-height:1;letter-spacing:-0.03em;color:#F8FAFC;display:inline-flex;align-items:flex-start}
+.manifesto-split__stat sup{font-size:0.45em;color:#7DD3FC;font-weight:500;margin-left:0.08em;margin-top:0.35em;letter-spacing:0}
+.manifesto-split__stat-label{font-family:var(--font-body);font-size:0.95rem;font-weight:400;color:rgba(248,250,252,0.78);max-width:30ch;line-height:1.55}
+.manifesto-split__bars{display:flex;flex-direction:column;gap:0.5rem;width:100%;max-width:280px;margin-top:1rem}
+.manifesto-split__bar{height:3px;background:rgba(248,250,252,0.08);border-radius:2px;position:relative;overflow:hidden}
+.manifesto-split__bar::after{content:"";position:absolute;left:0;top:0;height:100%;width:var(--w,0%);background:linear-gradient(90deg,#7DD3FC,#0369A1);border-radius:2px;animation:bar-fill 1.4s cubic-bezier(0.16,1,0.3,1) var(--d,0s) both}
+@keyframes bar-fill{from{width:0}to{width:var(--w,0%)}}
+.manifesto-split__text{padding:clamp(2rem,4.5vw,3.5rem);display:flex;flex-direction:column;justify-content:center;gap:1.25rem;border-left:1px solid var(--border)}
+@media (max-width:879px){.manifesto-split__text{border-left:none;border-top:1px solid var(--border)}}
+.manifesto-split__quote{font-family:var(--font-display);font-size:clamp(1.5rem,2.5vw,2.15rem);font-weight:500;line-height:1.25;letter-spacing:-0.02em;color:var(--text-strong);margin:0}
+.manifesto-split__quote em{color:var(--accent);font-style:italic;font-weight:500}
+.manifesto-split__sub{color:var(--text-muted);font-size:1rem;line-height:1.65;margin:0}
+.manifesto-split__pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem}
+.manifesto-split__pill{display:inline-flex;align-items:center;padding:0.4rem 0.9rem;background:var(--bg-tint);color:var(--text-strong);font-family:var(--font-mono);font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;border-radius:999px;border:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="SCA-CON hem">
+        <span class="logo__chip">
+          <img class="logo__img" src="https://sca-con.se/images/8/scacon-logga-1070.png" alt="SCA-CON - Scandinavian Construction &amp; Management AB" />
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Hem</a>
+        <a href="about.html">Om oss</a>
+        <a href="services.html">Tjänster</a>
+        <a href="projects.html">Referenser</a>
+        <a href="sustainability.html" class="is-active">Hållbarhet</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+      <a href="contact.html" class="btn btn--primary header-cta">Kontakta oss <span class="arr">→</span></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+  <a href="index.html">Hem</a>
+  <a href="about.html">Om oss</a>
+  <a href="services.html">Tjänster</a>
+  <a href="projects.html">Referenser</a>
+  <a href="sustainability.html">Hållbarhet</a>
+  <a href="contact.html">Kontakt</a>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__grid">
+      <div>
+        <span class="eyebrow">Hållbarhet</span>
+        <h1 style="margin-top:1.25rem;">Bygg smart. <em class="display-serif">Bygg hållbart.</em> Bygg tillsammans.</h1>
+      </div>
+      <p class="page-hero__text">
+        Vi gör inga storslagna miljöuttalanden. Konceptbyggnation är till sin
+        natur en bransch som förbrukar material och resor. Det vi kan göra,
+        och faktiskt gör, är att välja smart, sortera rätt och samarbeta med
+        leverantörer som tänker likadant.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Vår hållning - split layout: image with stat caption + quote card -->
+<section class="section" style="padding:clamp(4rem,7vw,6rem) 0;">
+  <div class="container">
+    <div class="manifesto-split reveal-on-scroll">
+      <div class="manifesto-split__media">
+        <div class="manifesto-split__pattern" aria-hidden="true">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="rgba(125,211,252,0.2)"/>
+              </pattern>
+              <linearGradient id="diag1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgba(3,105,161,0.4)"/>
+                <stop offset="100%" stop-color="rgba(3,105,161,0)"/>
+              </linearGradient>
+              <linearGradient id="diag2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(125,211,252,0.18)"/>
+                <stop offset="100%" stop-color="rgba(125,211,252,0)"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="400" fill="url(#dots)"/>
+            <rect width="400" height="400" fill="url(#diag1)"/>
+            <rect width="400" height="400" fill="url(#diag2)"/>
+            <line x1="0" y1="100" x2="400" y2="100" stroke="rgba(125,211,252,0.08)" stroke-width="1"/>
+            <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(125,211,252,0.08)" stroke-width="1"/>
+            <line x1="0" y1="300" x2="400" y2="300" stroke="rgba(125,211,252,0.08)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="manifesto-split__centerpiece">
+          <span class="manifesto-split__kicker">Mätbart resultat</span>
+          <span class="manifesto-split__stat">~85<sup>%</sup></span>
+          <span class="manifesto-split__stat-label">av butiksinredning återanvänds vid avetableringar</span>
+          <div class="manifesto-split__bars" aria-hidden="true">
+            <div class="manifesto-split__bar" style="--w:85%;"></div>
+            <div class="manifesto-split__bar" style="--w:60%;--d:0.15s;"></div>
+            <div class="manifesto-split__bar" style="--w:40%;--d:0.3s;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="manifesto-split__text">
+        <span class="eyebrow">Vår hållning</span>
+        <p class="manifesto-split__quote">
+          Den mest hållbara butiken är den som <em>inte behöver byggas om i onödan.</em>
+        </p>
+        <p class="manifesto-split__sub">
+          Återanvänd inredning. Sortera materialet. Välj underentreprenörer
+          som tänker långsiktigt. Det är så vi tolkar hållbarhet i
+          konceptbyggnation - inte som en marknadsföringsidé, utan som tre
+          beslut vi fattar i varje projekt.
+        </p>
+        <div class="manifesto-split__pills">
+          <span class="manifesto-split__pill">Återbruk först</span>
+          <span class="manifesto-split__pill">Sortering på plats</span>
+          <span class="manifesto-split__pill">Hållbara partners</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Commitments -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head reveal-on-scroll">
+      <div class="section-head__title">
+        <span class="eyebrow">Fem åtaganden</span>
+        <h2 style="margin-top:1.25rem;">Tillsammans gör vi skillnad.</h2>
+      </div>
+      <div class="section-head__body">
+        Det här är de fem konkreta sätten vi tar miljöansvar på. Varje projekt,
+        varje servicebesök, varje upphandling.
+      </div>
+    </div>
+
+    <div class="commitments reveal-on-scroll">
+
+      <div class="commit">
+        <div class="commit__tag">01 / Lagar &amp; krav</div>
+        <div class="commit__head">
+          <h3>Vi följer miljölagar och krav.</h3>
+        </div>
+        <div class="commit__body">
+          <div class="metric">100<em>%</em></div>
+          <span class="metric-label">Efterlevnad av miljölagar och kundkrav</span>
+          <p>Vi följer gällande miljölagar, föreskrifter och krav från myndigheter och kunder. Inget skuggområde, ingen tolkning åt vårt eget håll.</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit__tag">02 / Material</div>
+        <div class="commit__head">
+          <h3>Hållbart material genom hela projektet.</h3>
+        </div>
+        <div class="commit__body">
+          <div class="metric">100<em>%</em></div>
+          <span class="metric-label">Sortering och återvinning på alla projekt</span>
+          <p>Vi bygger med hållbart material och har alltid sortering och återvinning som standard på alla projekt. Det börjar redan i upphandlingsfasen.</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit__tag">03 / Återanvändning</div>
+        <div class="commit__head">
+          <h3>Sortering och återvinning, alltid.</h3>
+        </div>
+        <div class="commit__body">
+          <div class="metric">~85<em>%</em></div>
+          <span class="metric-label">Av butiksinredning återanvänds vid avetableringar</span>
+          <p>Vid avetableringar är återanvändning första valet. Inredning som kan flyttas till en annan butik flyttas. Det som kan återvinnas återvinns. Deponi är sista utvägen, inte första.</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit__tag">04 / Partners</div>
+        <div class="commit__head">
+          <h3>Underentreprenörer som driver miljöfrågan.</h3>
+        </div>
+        <div class="commit__body">
+          <div class="metric">3-stegs<em></em></div>
+          <span class="metric-label">Miljökrav vid val av underentreprenör</span>
+          <p>Vi väljer underentreprenörer som driver miljöfrågan på samma sätt som vi själva gör. Det räcker inte att vi gör rätt, hela kedjan måste hålla.</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit__tag">05 / Logistik</div>
+        <div class="commit__head">
+          <h3>Klimatsmarta lösningar och resande.</h3>
+        </div>
+        <div class="commit__body">
+          <div class="metric">−24<em>%</em></div>
+          <span class="metric-label">Färre tomma servicekilometer 2024 vs 2022</span>
+          <p>Vi väljer miljösmart resande och planerar logistik så att samma servicebil kan göra flera ärenden i samma område. Mindre tomma kilometer, mindre utsläpp.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Progress bars section -->
+<section class="section section-dark deco-grid">
+  <div class="container">
+    <div class="section-head reveal-on-scroll">
+      <div class="section-head__title">
+        <span class="eyebrow">Vart vi är på väg</span>
+        <h2 style="margin-top:1.25rem;">Vart vi är på väg.</h2>
+      </div>
+      <div class="section-head__body" style="color:rgba(250,248,243,0.75);">
+        Vi tror på mätbara mål inom synlig framtid. Här är riktningen för de
+        kommande åren, lagd nära nog för att hålla oss ärliga.
+      </div>
+    </div>
+
+    <div class="reveal-on-scroll">
+      <div class="progress">
+        <div class="p-row">
+          <div class="p-label"><span>Återanvänd inredning vid avetableringar</span><span>85%</span></div>
+          <div class="p-bar"><div class="p-fill" style="--pct:0.85"></div></div>
+          <div class="p-desc">Mål 2030: 95%. Inredning som kan återanvändas hamnar i en annan butik istället för i containern.</div>
+        </div>
+        <div class="p-row">
+          <div class="p-label"><span>Klimatsmart logistik (samordnade rutter)</span><span>72%</span></div>
+          <div class="p-bar"><div class="p-fill" style="--pct:0.72"></div></div>
+          <div class="p-desc">Mål 2030: 90%. Vi planerar servicebesök regionalt så samma bil hanterar flera ärenden per tur.</div>
+        </div>
+        <div class="p-row">
+          <div class="p-label"><span>Sorterat &amp; återvunnet material</span><span>100%</span></div>
+          <div class="p-bar"><div class="p-fill" style="--pct:1.0"></div></div>
+          <div class="p-desc">Mål 2030: bibehållen 100%. Standard på alla våra projekt sedan starten.</div>
+        </div>
+        <div class="p-row">
+          <div class="p-label"><span>Hållbara underentreprenörer i kedjan</span><span>78%</span></div>
+          <div class="p-bar"><div class="p-fill" style="--pct:0.78"></div></div>
+          <div class="p-desc">Mål 2030: 100%. Successiv övergång allt eftersom äldre samarbeten löper ut och nya tas ombord.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reports CTA -->
+<section class="section">
+  <div class="container">
+    <div class="split reveal-on-scroll">
+      <div class="split__media">
+        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" alt="" />
+        <span class="caption">Hållbarhetsarbete - 2025</span>
+      </div>
+      <div class="split__text">
+        <span class="eyebrow">Läs mer</span>
+        <h2 style="margin-top:1.25rem;">Mätbara mål, redovisade årligen.</h2>
+        <p>
+          Vi följer upp våra åtaganden internt och i dialog med kund. När
+          hållbarhet är en del av projektet är det också en del av rapporteringen,
+          oavsett om kunden ber om det eller inte.
+        </p>
+        <p>
+          Vill du veta mer om hur vi tänker kring hållbarhet i ett specifikt
+          projekt? Hör av dig till Christoffer eller Jonas.
+        </p>
+        <a href="contact.html" class="btn btn--primary">
+          Hör av dig
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <h3>SCA-CON</h3>
+        <p>Komplett bygg-, installations- och serviceföretag inom konceptbyggnation. 20 år i branschen.</p>
+      </div>
+      <div class="footer-col"><h4>Utforska</h4><ul>
+        <li><a href="about.html">Om oss</a></li><li><a href="services.html">Tjänster</a></li>
+        <li><a href="projects.html">Referenser</a></li><li><a href="sustainability.html">Hållbarhet</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Jobba med oss</h4><ul>
+        <li><a href="contact.html">Kontakta oss</a></li><li><a href="#">Lediga tjänster</a></li>
+        <li><a href="mailto:faktura@sca-con.se">Leverantörsfakturor</a></li><li><a href="mailto:felanmalan@sca-con.se">Felanmälan</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Kontor</h4><ul>
+        <li>Höganäs (HK)</li><li>Älvängen</li><li>Göteborg</li><li>Stockholm</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 SCA-CON AB - Scandinavian Construction & Management AB</div>
+      <div><a href="https://sca-con.se/privacy-policy.html">Integritetspolicy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.linkedin.com/company/scandinavian-construction-management-ab/">LinkedIn</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:info@sca-con.se">info@sca-con.se</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ========== Shared scroll choreography (inlined) ========== */
+/* ==========================================================================
+   SCA-CON CO. - scroll choreography
+   ========================================================================== */
+
+/* Header scroll state */
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const onScrolla = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScrolla, { passive: true });
+  onScrolla();
+})();
+
+/* Mobile nav */
+(function () {
+  const burger = document.querySelector('.burger');
+  const mnav = document.querySelector('.mobile-nav');
+  if (!burger || !mnav) return;
+  burger.addEventListener('click', () => {
+    const open = mnav.classList.toggle('is-open');
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mnav.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      mnav.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    })
+  );
+})();
+
+/* Reveal on scroll */
+(function () {
+  const els = document.querySelectorAll('.reveal-on-scroll');
+  if (!els.length || !('IntersectionObserver' in window)) {
+    els.forEach((e) => e.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+  );
+  els.forEach((el) => io.observe(el));
+})();
+
+/* Counter animation - numbers tick up when stat enters view */
+(function () {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length || !('IntersectionObserver' in window)) return;
+  const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+  const animate = (el) => {
+    const target = parseFloat(el.dataset.counter);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const duration = 1800;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = easeOutExpo(progress);
+      const value = target * eased;
+      el.textContent = decimals > 0 ? value.toFixed(decimals) : Math.floor(value).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = decimals > 0 ? target.toFixed(decimals) : target.toLocaleString();
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  counters.forEach((el) => io.observe(el));
+})();
+
+/* Simple form stub */
+(function () {
+  const forms = document.querySelectorAll('form[data-demo]');
+  forms.forEach((f) => {
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = f.querySelector('button[type="submit"]');
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>Sent - thank you</span>';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.disabled = false;
+          f.reset();
+        }, 2800);
+      }
+    });
+  });
+})();
+
+/* Parallax for hero - subtle translate on scroll */
+(function () {
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  if (!parallaxEls.length) return;
+  let ticking = false;
+  const apply = () => {
+    const y = window.scrollY;
+    parallaxEls.forEach((el) => {
+      const speed = parseFloat(el.dataset.parallax) || 0.3;
+      el.style.transform = `translate3d(0, ${y * speed}px, 0)`;
+    });
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(apply);
+      ticking = true;
+    }
+  }, { passive: true });
+  apply();
+})();
+
+/* Scrolla-scrubbed construction SVG  - 
+   Section is 400vh tall with 100vh sticky inner.
+   Scrolla progress (0 → 1) drives the SVG's reveal via CSS variables. */
+(function () {
+  const sequence = document.querySelector('[data-build-sequence]');
+  if (!sequence) return;
+
+  const stage = sequence.querySelector('.build-stage');
+  const stageNumber = sequence.querySelector('[data-stage-number]');
+  const stageTitle = sequence.querySelector('[data-stage-title]');
+  const stageDesc = sequence.querySelector('[data-stage-desc]');
+  const progressBar = sequence.querySelector('[data-progress-fill]');
+
+  const stages = [
+    { n: '01', t: 'Excavation', d: 'Site survey, earthworks, dewatering. Before anything rises, the ground is disciplined.' },
+    { n: '02', t: 'Foundation', d: 'Reinforced concrete. Cast once, inspected twice. Every building starts here - and fails here if we rush.' },
+    { n: '03', t: 'Structure', d: 'Steel columns and beams, erected to millimetre tolerance. The skeleton that will carry the next fifty years.' },
+    { n: '04', t: 'Envelope', d: 'Floors, facade, roof. The asset starts to read as a building, not a construction site.' },
+    { n: '05', t: 'Handover', d: 'Commissioned, inspected, signed off. The building belongs to the owner now. The crew moves to the next site.' }
+  ];
+
+  let ticking = false;
+  const update = () => {
+    const rect = sequence.getBoundingClientRect();
+    const total = sequence.offsetHeight - window.innerHeight;
+    const scrolled = -rect.top;
+    const progress = Math.max(0, Math.min(1, scrolled / total));
+
+    // Drive the SVG reveal via a CSS custom property
+    stage.style.setProperty('--p', progress.toFixed(4));
+    if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
+
+    // Which stage label to show (5 steps across the scroll)
+    const stageIdx = Math.min(stages.length - 1, Math.floor(progress * stages.length));
+    const s = stages[stageIdx];
+    if (stageNumber.textContent !== s.n) {
+      stageNumber.textContent = s.n;
+      stageTitle.textContent = s.t;
+      stageDesc.textContent = s.d;
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* Hero headline scroll-linked opacity (fade out as you leave hero) */
+(function () {
+  const heroHeadline = document.querySelector('[data-hero-fade]');
+  if (!heroHeadline) return;
+  let ticking = false;
+  const update = () => {
+    const y = window.scrollY;
+    const h = window.innerHeight;
+    const opacity = Math.max(0, 1 - (y / (h * 0.7)));
+    heroHeadline.style.opacity = opacity.toFixed(3);
+    heroHeadline.style.transform = `translate3d(0, ${y * -0.25}px, 0)`;
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+})();
+
+</script>
+</body>
+</html>
